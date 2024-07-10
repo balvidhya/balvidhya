@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bal Vidhya Mandir English Boarding School</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" >
+</head>
+<body>
+    
+    <!------------Navigation bar------------>
+    <header>
+        <img src="Image/logo.png" alt="School logo">
+        <input type="checkbox" id="navigation" hidden>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#facilities">Facilities</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <label for="navigation" class="menubar">
+            <div></div>
+            <div></div>
+            <div></div>
+        </label>
+    </header>
+
+    <!------------Home Section------------>
+    <section id="home">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+             <div class="swiper-slide"><img src="Image Slider Img/img1.jpeg" alt=""></div>
+              <div class="swiper-slide"><img src="Image Slider Img/img2.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="Image Slider Img/img3.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="Image Slider Img/img4.jpeg" alt=""></div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="home-content">
+            <h2>Discover Excellence in Education</h2>
+            <p>At our school, we strive for excellence in every aspect of education. Our rigorous academic programs, dedicated faculty, and diverse extracurricular activities ensure that each student achieves their highest potential</p>
+            <div class="btn">
+                <a href="#about" class="btn-one">Learn More</a>
+                <a href="#" class="btn-two" id="openFormBtn1">Admission</a>
+            </div>
+        </div>
+    </section>
+
+    <div id="sliding-content" class="sliding-content">
+        <div class="bg-white p-6 md:p-8 rounded-lg flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8 relative">
+          <button class="close-button absolute top-0 right-0 m-4" onclick="closeSlidingContent();">×</button>
+          <div class="flex-1 text-center md:text-left">
+            <h2 class="text-3xl font-semibold mb-4">Join Us Today</h2>
+            <p class="text-lg mb-6">Apply now to join our school and experience quality education with ethical standards.</p>
+            <a href="#" class="popapply-button"  id="openFormBtn3" >Apply Now</a>
+          </div style="align-items: center;">
+          <img src="Image/logo.png" style="height: 100px; width: 100px; margin-left: 0;" alt="Logo" class="max-w-full h-auto md:max-w-none md:h-auto">
+        </div>
+      </div>
+
+     
+
+    <!------------About------------>
+    <section class="about-section" id="about">
+        <h1>About Us</h1>
+        <div class="school-info">
+          <div class="info">
+            <h2>Bal Vidhya Mandir English Boarding School</h2>
+            <p class="short-description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas harum assumenda nemo debitis error voluptatum sed laudantium illum sit fugiat eos veniam nulla ducimus minima ut, facere commodi? Totam, iusto!
+            </p>
+            <div class="read-more-content">
+              <p>
+                Additional detailed description about the school. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </div>
+            <button class="read-more-btn" onclick="toggleReadMore()">Read More</button>
+          </div>
+          <img src="Images/imgg.jpeg" alt="School Image">
+        </div>
+      </section>
+      <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item">
+                <i class="fas fa-chalkboard"></i>
+                <div class="stat-info">
+                    <h3 class="counter" data-target="15">0</h3>
+                    <p>Classes</p>
+                </div>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-user-tie"></i>
+                <div class="stat-info">
+                    <h3 class="counter" data-target="25">0</h3>
+                    <p>Teachers</p>
+                </div>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-book"></i>
+                <div class="stat-info">
+                    <h3 class="counter" data-target="10">0</h3>
+                    <p>Courses</p>
+                </div>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-users"></i>
+                <div class="stat-info">
+                    <h3 class="counter" data-target="300">0</h3>
+                    <p>Students</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        const counters = document.querySelectorAll('.counter');
+        counters.forEach(counter => {
+            counter.innerText = '0';
+
+            const updateCounter = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const increment = target / 50; // Adjust the increment value to change the speed
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(updateCounter, 10);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+
+            updateCounter();
+        });
+    </script>
+      
+    <!------------Why choose us------------>
+    <section class="why-choose-us" id="whychooseus">
+        <div class="container">
+            <h2 class="section-title">Why Choose Us?</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-box">
+                        <i class="fa fa-graduation-cap"></i>
+                        <h3>Quality Education</h3>
+                        <p>We are committed to providing high-quality education that prepares students for their future careers.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-box">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <h3>Expert Faculty</h3>
+                        <p>Our passionate and experienced educators inspire and support students to achieve academic excellence and personal growth.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-box">
+                        <i class="fas fa-globe"></i>
+                        <h3>Diverse Community</h3>
+                        <p>Our inclusive environment embraces diversity, promoting mutual respect and understanding among students from different backgrounds.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-box">
+                        <i class="fas fa-futbol"></i>
+                        <h3>Extracurricular Activities</h3>
+                        <p>We offer a variety of extracurricular activities that enrich student life and encourage personal development beyond the classroom.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-box">
+                        <i class="fas fa-leaf"></i>
+                        <h3>CHealthy & Clean Environment</h3>
+                        <p>We maintain a clean and hygienic environment that promotes health and well-being, ensuring students have a pleasant and safe place to learn.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-box">
+                        <i class="fa fa-heart"></i>
+                        <h3>Character Development</h3>
+                        <p>We focus on integrity, respect, empathy, and teaching manners, preparing students to become ethical and responsible individuals.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="admission-section">
+        <div class="admission-content">
+            <h1>Admission Open for <span id="year"></span></h1>
+            <p>Apply now to secure your spot!</p>
+            <button class="apply-button" id="openFormBtn2" >Apply Now</button>
+        </div>
+    </section>
+
+    
+
+    <!------------What we provide------------>
+    <section id="facilities">
+        <h1 style="margin-bottom: 15px;">Features</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni doloremque est doloribus reprehenderit recusandae quis delectus voluptatibus cum fugiat mollitia consequuntur saepe fugit veritatis odio, sit voluptas fuga, iste laborum.</p>
+        <div class="fa-content">
+            <div class="fa-box">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Scholar Facility</h3>
+                <p>We offer scholarships to deserving students, providing full scholarships to first place students, 50% discounts to second place students, and 25% discounts to third place students in each class.</p>
+            </div>
+            <div class="fa-box">
+                <i class="fas fa-star"></i>
+                <h3>Extra-Curricular Activities</h3>
+                <p>We focus on holistic development by offering a variety of extra-curricular activities and sports. Our courses include dance, music, art, and computer classes, designed to enhance students' skills and interests beyond the classroom.</p>
+            </div>
+            <div class="fa-box">
+                <i class="fas fa-school"></i>
+                <h3>Transportation and Playgrounds</h3>
+                <p>We provide bus facilities for students to ensure safe and convenient travel to and from school. Additionally, our school is equipped with various playgrounds, including football, basketball, table tennis, and volleyball, to support a wide range of sports activities.</p>
+            </div>
+        </div>
+    </section>
+     <!------------Message from Teachers------------>
+     <section class="message-slider" id="teachermsg">
+        <div class="messages">
+            <div class="message active">
+                <img src="images.jpeg" alt="Avatar 1">
+                <p>Message 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="message">
+                <img src="img2.jpeg" alt="Avatar 2">
+                <p>Message 2 Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="message">
+                <img src="img3.jpeg" alt="Avatar 3">
+                <p>Message 3 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+        </div>
+    </section>
+    <!------------Students Feedback------------>
+    <section id="testimonial-section">
+        <h2>What Our Students Say</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum in assumenda laboriosam accusamus veritatis quia optio, iure corrupti nemo eaque exercitationem! Assumenda, culpa. Iste nobis minus voluptates eum hic. Impedit!</p>
+        <div class="testimonial-card">
+            <img src="logo.png" alt="Student Photo">
+            <div class="testimonial-content">
+                <h3>John Doe</h3>
+                <p>This school has shaped my future and provided me with countless opportunities to grow and succeed. The support from the faculty was incredible.</p>
+                <div class="date">Class of 2020</div>
+            </div>
+        </div>
+        <div class="testimonial-card even">
+            <img src="student2.jpg" alt="Student Photo">
+            <div class="testimonial-content">
+                <h3>Jane Smith</h3>
+                <p>Attending this school was a life-changing experience. The community here is so supportive and motivating. I couldn't have asked for a better education.</p>
+                <div class="date">Class of 2018</div>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <img src="student3.jpg" alt="Student Photo">
+            <div class="testimonial-content">
+                <h3>Michael Brown</h3>
+                <p>The experience at this school was phenomenal. The learning environment and the faculty's dedication have truly prepared me for my future career.</p>
+                <div class="date">Class of 2019</div>
+            </div>
+        </div>
+        <div class="testimonial-card even">
+            <img src="student4.jpg" alt="Student Photo">
+            <div class="testimonial-content">
+                <h3>Emily Davis</h3>
+                <p>From the supportive staff to the engaging curriculum, everything about this school has exceeded my expectations. I am proud to be an alumna.</p>
+                <div class="date">Class of 2021</div>
+            </div>
+        </div>
+    </section>
+    
+    <div id="popupForm" class="popup">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h2 style="font-weight: 600;">Admission Form</h2>
+            <p>We will get back to you asap!</p>
+            <form action="">
+                <input type="text" placeholder="First Name" required>
+                <input type="text" placeholder="Last Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="tel" placeholder="Phone" required>
+                <input type="file" placeholder="Attach Document" required>
+                <button type="submit">Send</button>
+            </form>
+            <p>You may also call us at   <a href="tel:061-521163"><i class="fas fa-phone" style="font-size: 15px;"></i> 061-521163</a></p>
+        </div>
+    </div>
+
+    <!------------Footer------------>
+     <footer class="footer" >
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>About Us</h4>
+                    <img src="Image/logo.png" style="width: 80px; height: 80px;" alt="">
+                    <p style="margin-top: 10px;">Our Motto : Quality Education and Ethical Standards</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#facilities">Facilities</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul class="footerinfo">
+                        <li><a href="tel:061-521163"><i class="fas fa-phone"></i> 061-521163</a></li>
+                        <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=balvidya328@gmail.com" target="_blank"><i class="fas fa-envelope"></i> balvidya328@gmail.com</a></li>
+                        <li><a href="https://maps.app.goo.gl/6TjDe9AC4hR78Y2k6"><i class="fas fa-map-marker-alt"></i> Miya Patan-12 , Pokhara, Nepal</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="footer-col copyright">
+                    <p>&copy; 2024 Bal Vidhya Mandir English Boarding School. All rights reserved.  Designed and developed by Sudeep Stha.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
